@@ -1,0 +1,27 @@
+{
+  "name": "സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്റർ",
+  "short_name": "PP Generator",
+  "description": "നിങ്ങളുടെ വെബ്സൈറ്റിന് മലയാളത്തിൽ സ്വകാര്യതാനയം ജനറേറ്റ് ചെയ്യാൻ വേണ്ടിയുള്ള സൗജന്യ വെബ് ആപ്പ്.",
+  "icons": [
+    {
+      "src": "/images/icon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/maskable_icon.png",
+      "sizes": "787x787",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "theme_color": "#080404",
+  "background_color": "#080404"
+}
