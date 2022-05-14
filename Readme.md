@@ -37,7 +37,7 @@
 - ഈ പ്രൊജക്റ്റ് നിങ്ങൾക്ക് ഇഷ്ടപ്പെട്ടാൽ അല്ലെങ്കിൽ ഇത് നിങ്ങൾക്ക് ഉപകാരപ്പെട്ടതിനെപ്പറ്റിയോ ഞങ്ങളോട് പറയുക!
 
   - [പ്രൊജക്റ്റിന്റെ ചർച്ചകളിൽ അഭിപ്രായമറിയിക്കൂ](https://github.com/digitalmalayali/free-malayalam-privacy-policy-generator/discussions) :blush:,
-  - [ട്വിറ്റർ](https://twitter.com/digimalayali) ഞങ്ങളെ ബന്ധപ്പെടൂ,
+  - [ട്വിറ്ററിൽ](https://twitter.com/digimalayali) ഞങ്ങളെ ബന്ധപ്പെടൂ,
   - അല്ലെങ്കിൽ [നല്ലൊരു മെയിലയക്കൂ](mailto:contact@digitalmalayali.in)!
 
 നിങ്ങളുടെ താത്പര്യത്തിന് നന്ദി! :heart:
