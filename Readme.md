@@ -9,7 +9,7 @@
 <a href="https://malayalam-privacy-policy-generator.digitalmalayali.in/">വെബ് ആപ്പിലേക്ക് പോവാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക</a>.
   
 <br> 
-ഇംഗ്ലീഷിൽ സ്വകാര്യതാനയം സൃഷ്ടിക്കാൻ, <a href="https://free-privacy-policy-generator.digitalmalayali.in/">ഇവിടെ</a> ക്ലിക്ക് ചെയ്യുക.</div>
+ഇംഗ്ലീഷിൽ സ്വകാര്യതാനയം സൃഷ്ടിക്കാൻ, <a href="https://free-privacy-policy-generator.digitalmalayali.in/">ഇതിലേ</a> പോവുക.</div>
 
 <br>
 
