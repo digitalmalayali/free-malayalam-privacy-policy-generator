@@ -9,7 +9,7 @@
 <a href="https://malayalam-privacy-policy-generator.digitalmalayali.in/">വെബ് ആപ്പിലേക്ക് പോവാൻ ഇവിടെ ക്ലിക്ക് ചെയ്യുക</a>.
   
 <br> 
-വെബ്സൈറ്റിന് ഇംഗ്ലീഷിൽ സ്വകാര്യതാനയം സൃഷ്ടിക്കാൻ, <a href="https://free-privacy-policy-generator.digitalmalayali.in/">ഇവിടെ</a> ക്ലിക്ക് ചെയ്യുക.</div>
+ഇംഗ്ലീഷിൽ സ്വകാര്യതാനയം സൃഷ്ടിക്കാൻ, <a href="https://free-privacy-policy-generator.digitalmalayali.in/">ഇവിടെ</a> ക്ലിക്ക് ചെയ്യുക.</div>
 
 <br>
 
@@ -21,26 +21,26 @@
 
 </div>
 
-## Author & Contributors 🙏
+## പിന്നണിയിൽ 🙏
 
-This project is a modified version of the original web app by [Nishant Srivastava](https://github.com/nisrulz/nisrulz.github.io#nishant-srivastava). Please consider supporting him.
+[നിഷാന്തിന്റെ](https://github.com/nisrulz/nisrulz.github.io#nishant-srivastava) വെബ് ആപ്പിനെ അടിസ്ഥാനമാക്കി മാറ്റങ്ങൾ വരുത്തിയാണ് ഈ ആപ്പ് നിർമ്മിച്ചിരിക്കുന്നത്. ദയവായി അദ്ദേഹത്തെ പിന്തുണയ്ക്കുക.
 
-Illustrations by Katerina Limpitsouni via [unDraw](https://undraw.co/). Background using [particles.js](https://github.com/VincentGarreau/particles.js/). Darkmode from [GoogleChromeLabs](https://github.com/GoogleChromeLabs/dark-mode-toggle). 
+[unDraw](https://undraw.co/)-യിൽ നിന്നുമാണ് ചിത്രങ്ങൾ. [particles.js](https://github.com/VincentGarreau/particles.js/) ഉപയോഗിച്ചാണ് ബാക്ക്ഗ്രൗണ്ട് സൃഷ്ടിച്ചിരിക്കുന്നത്. [GoogleChromeLabs](https://github.com/GoogleChromeLabs/dark-mode-toggle)-ൽ നിന്നുമാണ് ഡാർക്ക് മോഡ്. 
 
-## Ways You Can Help/Support this project 💕
+## ഈ പ്രൊജക്റ്റിനെ പിന്തുണയ്ക്കാനുള്ള വഴികൾ 💕
 
-- **Star** this repository and tell all your friends about it.
-- **Watch** for new releases to get an update if something happens.
-- [**Open an Issue**](https://github.com/digitalmalayali/free-malayalam-privacy-policy-generator/issues/new/choose) if you catch any error in copy text or within the project itself.
-- **Open a Pull Request** to include support for adding more 3rd party service's links or fixes against [existing issues](https://github.com/digitalmalayali/free-malayalam-privacy-policy-generator/issues).
+- ഈ റിപ്പോസിറ്ററി **സ്റ്റാർ** ചെയ്ത് സുഹൃത്തുക്കളോട് ഇതിനെപ്പറ്റി പറയുക.
+- മാറ്റങ്ങളെയും പുതുമകളെയും പറ്റി അറിയാൻ റിലീസുകൾ **നിരീക്ഷിക്കുക**.
+- എന്തെങ്കിലും പിഴവുകളോ, പോരായ്മകളോ, പ്രശ്നങ്ങളോ കണ്ടാൽ [**ഇഷ്യൂ ഓപ്പൺ ചെയ്യുക**](https://github.com/digitalmalayali/free-malayalam-privacy-policy-generator/issues/new/choose).
+- മൂന്നാംകക്ഷികളെ ചേർക്കാനോ, [പിഴവുകൾക്കുള്ള](https://github.com/digitalmalayali/free-malayalam-privacy-policy-generator/issues) പരിഹാരമോ ഉണ്ടെങ്കിൽ **പുൾ റിക്വസ്റ്റ് ഓപ്പൺ ചെയ്യുക**..
 
-- Tell us you like this project or how it helped you out!
+- ഈ പ്രൊജക്റ്റ് നിങ്ങൾക്ക് ഇഷ്ടപ്പെട്ടാൽ അല്ലെങ്കിൽ ഇത് നിങ്ങൾക്ക് ഉപകാരപ്പെട്ടതിനെപ്പറ്റിയോ ഞങ്ങളോട് പറയുക!
 
-  - [Comment in the project's discussions](https://github.com/digitalmalayali/free-malayalam-privacy-policy-generator/discussions) :blush:,
-  - Reach out on [Twitter](https://twitter.com/digimalayali),
-  - or [send us a nice email](mailto:contact@digitalmalayali.in)!
+  - [പ്രൊജക്റ്റിന്റെ ചർച്ചകളിൽ അഭിപ്രായമറിയിക്കൂ](https://github.com/digitalmalayali/free-malayalam-privacy-policy-generator/discussions) :blush:,
+  - [ട്വിറ്റർ](https://twitter.com/digimalayali) ഞങ്ങളെ ബന്ധപ്പെടൂ,
+  - അല്ലെങ്കിൽ [നല്ലൊരു മെയിലയക്കൂ](mailto:contact@digitalmalayali.in)!
 
-Thanks for your interest in this :heart:
+നിങ്ങളുടെ താത്പര്യത്തിന് നന്ദി! :heart:
 
 ## സ്ക്രീൻഷോട്ടുകൾ 💻
 
@@ -48,7 +48,7 @@ Thanks for your interest in this :heart:
 <img src="images/screen/sc_2.jpg" alt="സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്റർ" width=360 /><br>
 <img src="images/screen/sc_3.jpg" alt="സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്റർ" width=360 />
 
-## License 📝
+## ലൈസൻസ് 📝
 
 [GNU Affero General Public License v3.0](LICENSE)
 
