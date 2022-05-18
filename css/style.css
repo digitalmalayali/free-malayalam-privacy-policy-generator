@@ -22,27 +22,7 @@ html {
   font-family: 'Manjari', sans-serif;
 }
 
-.input::-moz-placeholder,
-.textarea::-moz-placeholder,
-.select select::-moz-placeholder {
-  font-family: 'Manjari', sans-serif;
-}
-
-.input::-webkit-input-placeholder,
-.textarea::-webkit-input-placeholder,
-.select select::-webkit-input-placeholder {
-  font-family: 'Manjari', sans-serif;
-}
-
-.input:-moz-placeholder,
-.textarea:-moz-placeholder,
-.select select:-moz-placeholder {
-  font-family: 'Manjari', sans-serif;
-}
-
-.input:-ms-input-placeholder,
-.textarea:-ms-input-placeholder,
-.select select:-ms-input-placeholder {
+.textarea {
   font-family: 'Manjari', sans-serif;
 }
 

@@ -19,37 +19,13 @@ html {
   font-family: 'Manjari', sans-serif;
 }
 
+.textarea {
+  font-family: 'Manjari', sans-serif;
+}
+
 body,
 .textarea {
   color: #d0d5df;
-}
-
-.input::-moz-placeholder,
-.textarea::-moz-placeholder,
-.select select::-moz-placeholder {
-  color: #7e7e7e;
-  font-family: 'Manjari', sans-serif;
-}
-
-.input::-webkit-input-placeholder,
-.textarea::-webkit-input-placeholder,
-.select select::-webkit-input-placeholder {
-  color: #7e7e7e;
-  font-family: 'Manjari', sans-serif;
-}
-
-.input:-moz-placeholder,
-.textarea:-moz-placeholder,
-.select select:-moz-placeholder {
-  color: #7e7e7e;
-  font-family: 'Manjari', sans-serif;
-}
-
-.input:-ms-input-placeholder,
-.textarea:-ms-input-placeholder,
-.select select:-ms-input-placeholder {
-  color: #7e7e7e;
-  font-family: 'Manjari', sans-serif;
 }
 
 li {
