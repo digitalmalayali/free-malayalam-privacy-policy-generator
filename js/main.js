@@ -42,6 +42,7 @@ var app = new Vue({
     contentRenderType: 1,
     wizardStep: 1,
     totalWizardSteps: 3,
+    isRequired: false,
   },
   methods: {
     preview: function (id) {
@@ -62,6 +63,11 @@ var app = new Vue({
 
           if (this.siteURL.length == 0 || this.siteURL == "" || this.siteURL == null || this.siteURL == "ദയവായി വെബ്സൈറ്റ് യു.ആർ.എൽ. നൽകുക!") {
             this.siteURL = "ദയവായി വെബ്സൈറ്റ് യു.ആർ.എൽ. നൽകുക!"
+            return
+          }
+
+          if (this.typeOfDev.length == 0) {
+            this.isRequired = true
             return
           }
         }

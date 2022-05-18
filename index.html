@@ -155,8 +155,8 @@
             </div>
             <div class="control is-expanded">
               <p class="help form-label">ഉടമസ്ഥൻ</p>
-              <!-- Owner-->
-              <div class="select is-primary">
+              <!-- ഉടമസ്ഥൻ-->
+              <div class="select" v-bind:class="{ 'is-danger': (typeOfDev.length == 0) }">
                 <select v-model="typeOfDev">
                   <option value="" disabled="">തരം</option>
                   <option>വ്യക്തി</option>
@@ -270,21 +270,20 @@
           <section class="modal-card-body modal-box">
             <div id="privacy_content" v-show="contentRenderType==1"><strong>സ്വകാര്യതാനയം</strong>
               <p>
-                {{devOrCompanyName}} (“{{iOrWe}}”) {{webName}} അഥവാ {{siteURL}} (“വെബ്സൈറ്റ്”) പ്രവർത്തിപ്പിക്കുന്നു.
-                നിങ്ങളുടെ സ്വകാര്യത
-                {{iOrWe}} ഗൗരവമായി കണക്കാക്കുന്നു. സൈറ്റിന്റെ ഉപയോക്താക്കളിൽ നിന്ന് {{meOrUs}} ലഭിക്കുന്ന
-                വ്യക്തിഗതവിവരങ്ങളുടെ ശേഖരണം, ഉപയോഗം, വെളിപ്പെടുത്തൽ എന്നിവ സംബന്ധിച്ച {{myOrOur}}
-                നയങ്ങൾ ഈ പേജ് നിങ്ങളെ അറിയിക്കുന്നു. സൈറ്റ് നൽകുന്നതിനും മെച്ചപ്പെടുത്തുന്നതിനും
-                മാത്രമാണ് നിങ്ങളുടെ സ്വകാര്യവിവരങ്ങൾ {{iOrWe}} ഉപയോഗിക്കുന്നത്. സൈറ്റ് ഉപയോഗിക്കുന്നതിലൂടെ,
+                {{devOrCompanyName}} എന്ന “{{iOrWe}}”, {{siteURL}} എന്ന വെബ് വിലാസത്തിൽ, {{webName}} എന്ന “വെബ്സൈറ്റ്”
+                പ്രവർത്തിപ്പിക്കുന്നു. നിങ്ങളുടെ സ്വകാര്യത {{iOrWe}} ഗൗരവമായി കണക്കാക്കുന്നു. സൈറ്റിന്റെ
+                ഉപയോക്താക്കളിൽ നിന്ന് {{meOrUs}} ലഭിക്കുന്ന വ്യക്തിഗതവിവരങ്ങളുടെ ശേഖരണം, ഉപയോഗം,
+                വെളിപ്പെടുത്തൽ എന്നിവ സംബന്ധിച്ച {{myOrOur}} നയങ്ങൾ ഈ പേജ് നിങ്ങളെ അറിയിക്കുന്നു. മാത്രമാണ്
+                നിങ്ങളുടെ സ്വകാര്യവിവരങ്ങൾ {{iOrWe}} ഉപയോഗിക്കുന്നത്. സൈറ്റ് ഉപയോഗിക്കുന്നതിലൂടെ,
                 ഈ നയത്തിന് അനുസൃതമായി വിവരശേഖരണവും ഉപയോഗവും നിങ്ങൾ അംഗീകരിക്കുന്നു.
               </p>
               <p><strong>വിവരശേഖരണവും ഉപയോഗവും</strong></p>
               <p>
                 ഈ വെബ്സൈറ്റ് അതിന്റെ സന്ദർശകരെക്കുറിച്ചുള്ള അടിസ്ഥാനവിവരങ്ങൾ ശേഖരിക്കുന്നു. കൂടാതെ,
-                {{myOrOur}} സൈറ്റ് ഉപയോഗിക്കുമ്പോൾ, നിങ്ങളെ ബന്ധപ്പെടുന്നതിനോ തിരിച്ചറിയുന്നതിനോ ഉപയോഗിക്കാവുന്ന
-                വ്യക്തിപരമായി തിരിച്ചറിയാനാകുന്ന ചില വിവരങ്ങൾ {{meOrUs}} നൽകാൻ {{iOrWe}} നിങ്ങളോട്
-                ആവശ്യപ്പെട്ടേക്കാം. പേര്, ഇ-മെയിൽ ഉൾപ്പെടെ എന്നാൽ അതിൽ മാത്രം പരിമിതപ്പെടുത്താതെ
-                വ്യക്തിപരമായി തിരിച്ചറിയാവുന്ന വിവരങ്ങൾ.
+                {{myOrOur}} സൈറ്റ് ഉപയോഗിക്കുമ്പോൾ, നിങ്ങളെ ബന്ധപ്പെടുന്നതിനോ തിരിച്ചറിയുന്നതിനോ ഉപയോഗിക്കാവുന്ന,
+                വ്യക്തിപരമായി തിരിച്ചറിയാനാകുന്ന, ചില വിവരങ്ങൾ {{meOrUs}} നൽകാൻ {{iOrWe}} നിങ്ങളോട്
+                ആവശ്യപ്പെട്ടേക്കാം. പേര്, ഇ-മെയിൽ ഉൾപ്പെടെ, എന്നാൽ അതിൽ മാത്രം പരിമിതപ്പെടുത്താത്ത,
+                വ്യക്തിപരമായ വിവരങ്ങൾ.
               </p>
               <p><strong>ലോഗ് ഡാറ്റ</strong></p>
               <p>
@@ -364,6 +363,7 @@
             <button class="button is-success"
               @click="getMarkdown('privacy_content', 'privacy_txtarea')">Markdown</button>
             <button class="button is-success" v-if="contentRenderType!=1" @click="preview()">പ്രിവ്യൂ</button>
+            <button class="button is-danger" id="copybtn" data-clipboard-target="#privacy_content">പകർത്തുക</button>
           </footer>
         </div>
       </div>
@@ -405,6 +405,24 @@
   <script src="js/utils.js"></script>
   <script src="js/main.js"></script>
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+
+  <script>
+    var btn = document.getElementById('copybtn');
+    var clipboard = new ClipboardJS(btn);
+
+    clipboard.on('success', function (e) {
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+    });
+
+    clipboard.on('error', function (e) {
+      console.info('Action:', e.action);
+      console.info('Text:', e.text);
+      console.info('Trigger:', e.trigger);
+    });
+  </script>
 
 
 
