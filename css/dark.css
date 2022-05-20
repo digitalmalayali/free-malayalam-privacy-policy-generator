@@ -155,7 +155,7 @@ img.social-logo.d {
   flex-direction: column;
 }
 
-.button.is-primary {
+.button.is-primary, .button.is-danger {
   margin-top: 0.7em;
 }
 
@@ -265,8 +265,8 @@ strong,
 
 .column.is-information .sidebar-img {
   pointer-events: none;
-  height: 21em;
-  padding: 2em;
+  height: 18em;
+  padding: 1em;
   -webkit-filter: invert(1);
   filter: invert(1);
   opacity: 92%;
