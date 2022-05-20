@@ -73,10 +73,6 @@ img.social-logo {
   width: 20px;
 }
 
-ins.adsbygoogle {
-  position: absolute;
-}
-
 #app> :nth-child(2) {
   padding-top: 0;
 }
