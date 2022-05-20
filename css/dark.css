@@ -257,8 +257,8 @@ strong,
 
 .column.is-information .sidebar-img {
   pointer-events: none;
-  width: 20em;
-  padding: 1em;
+  height: 25em;
+  padding: 3em;
   -webkit-filter: invert(1);
   filter: invert(1);
   opacity: 92%;
