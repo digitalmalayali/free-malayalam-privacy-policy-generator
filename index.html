@@ -127,283 +127,303 @@
           </div>
         </div>
       </section>
-      <section class="section" id="step-1" v-if="wizardStep==1">
-        <div class="columns">
-          <div class="column is-6 is-information"><img class="center-block sidebar-img"
-              alt="Welcome to Privacy Policy Generator" src="images/app_graphics/step_1.svg">
-            <!-- Ad -->
-            <script async
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3855750928963104"
-              crossorigin="anonymous"></script>
-            <!-- Privacy Policy Generator Ad -->
-            <ins class="adsbygoogle" style="display:inline-block;width:400px;height:90px"
-              data-ad-client="ca-pub-3855750928963104" data-ad-slot="9758959384"></ins>
-            <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-            <!-- Ad -->
-          </div>
-          <div class="column box scrollable">
-            <div class="control is-expanded">
-              <p class="help form-label">വെബ്സൈറ്റിന്റെ പേര്</p>
-              <input class="input" type="text" required v-model="webName" placeholder="ഡിജിറ്റൽ മലയാളി"
-                v-bind:class="{ 'is-danger': (webName == 'ദയവായി വെബ്സൈറ്റിന്റെ പേര് നൽകുക!' || webName.length == 0) }">
-            </div>
-            <div class="control is-expanded">
-              <p class="help form-label">ഇ-മെയിൽ</p>
-              <input class="input" type="email" required v-model="webContact" placeholder="contact@digitalmalayali.in"
-                v-bind:class="{ 'is-danger': (webContact == 'ദയവായി ബന്ധപ്പെടാനുള്ള ഇമെയിൽ നൽകുക!' || webContact.length == 0) }">
-            </div>
-            <div class="control is-expanded">
-              <p class="help form-label">വെബ്സൈറ്റ് യു.ആർ.എൽ.</p>
-              <input class="input" type="text" required v-model="siteURL" placeholder="https://www.digitalmalayali.in"
-                v-bind:class="{ 'is-danger': (siteURL == 'ദയവായി വെബ്സൈറ്റ് യു.ആർ.എൽ. നൽകുക!' || siteURL.length == 0) }">
-            </div>
-            <div class="control">
-              <p class="help form-label">നയം പ്രാബല്യത്തിൽ വരുന്ന തിയ്യതി</p>
-              <!-- നയം പ്രാബല്യത്തിൽ വരുന്ന തിയ്യതി-->
-              <input class="input is-primary" type="date" required="" v-model="effectiveFromDate">
-            </div>
-            <div class="control is-expanded">
-              <p class="help form-label">ഉടമസ്ഥൻ</p>
-              <!-- ഉടമസ്ഥൻ-->
-              <div class="select" v-bind:class="{ 'is-danger': (typeOfDev.length == 0) }">
-                <select v-model="typeOfDev">
-                  <option value="" disabled="">തരം</option>
-                  <option>വ്യക്തി</option>
-                  <option>കമ്പനി</option>
-                </select>
-              </div>
-            </div>
-            <div class="control is-expanded" v-if="typeOfDev=='കമ്പനി'">
-              <p class="help form-label">കമ്പനിയുടെ പേര്</p>
-              <!-- കമ്പനിയുടെ പേര്-->
-              <input class="input is-primary" type="text" v-model="companyName" placeholder="ഡിജിറ്റൽ മലയാളി">
-            </div>
-            <div class="control is-expanded" v-if="typeOfDev=='കമ്പനി'">
-              <p class="help form-label">കമ്പനിയുടെ വിലാസം</p>
-              <!-- കമ്പനിയുടെ വിലാസം-->
-              <input class="input is-primary" type="text" v-model="companyAdd"
-                placeholder="ഡിജിറ്റൽ മലയാളി, കേരളം, ഇന്ത്യ">
-            </div>
-            <div class="control is-expanded" v-if="typeOfDev=='വ്യക്തി'">
-              <p class="help form-label">പേര്</p>
-              <!-- ഡെവലപ്പറുടെ പേര്-->
-              <input class="input is-primary" type="text" v-model="devName" placeholder="പേര്">
-            </div>
-            <a class="button is-primary" @click="nextStep()" rel="noopener noreferrer">അടുത്തത്</a>
-          </div>
-        </div>
-      </section>
-      <section class="section" id="step-2" v-if="wizardStep==2">
-        <div class="columns">
-          <div class="column is-6 is-information"><img class="center-block sidebar-img"
-              alt="Illustration to depict selections" src="images/app_graphics/step_2.svg">
-          </div>
-          <div class="column">
-            <div class="column box scrollable"><b>മൂന്നാംകക്ഷി സേവനങ്ങളിലേക്കുള്ള കണ്ണികൾ</b><a
-                v-for="item in thirdPartyServices" rel="noopener noreferrer"><br>
-                <input type="checkbox" :id="'list-switch-' + item.model" v-model="item[item.model]">
-                <label :for="'list-switch-' + item.model"><img class="thirdparty-logo" :src="item.logo"
-                    :alt="item.name"><span class="thirdparty-text">{{ item.name }}</span></label></a>
-            </div>
-            <a class="button is-primary" @click="prevStep()" rel="noopener noreferrer">പിന്നോട്ട്</a>
-            <a class="button is-primary" @click="nextStep()" rel="noopener noreferrer">അടുത്തത്</a>
-            <div class="box">
-              <p class="has-text-grey-light">എല്ലാ വ്യാപാരമുദ്രകളും ലോഗോകളും ബ്രാൻഡ് നാമങ്ങളും
-                അവയുടെ ഉടമസ്ഥരുടെ സ്വത്താണ്. മുകളിൽ ഉപയോഗിച്ചിരിക്കുന്ന എല്ലാ കമ്പനികളുടെയും
-                ഉൽപ്പന്നങ്ങളുടെയും സേവനങ്ങളുടെയും പേരുകൾ തിരിച്ചറിയൽ ആവശ്യങ്ങൾക്ക് മാത്രമുള്ളതാണ്.
-                ഈ പേരുകൾ, വ്യാപാരമുദ്രകൾ, ബ്രാൻഡുകൾ എന്നിവയുടെ ഉപയോഗം ഈ വെബ്
-                ആപ്പിനുള്ള അംഗീകാരത്തെ സൂചിപ്പിക്കുന്നില്ല.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section" id="step-3" v-if="wizardStep==3">
-        <div class="columns">
-          <div class="column is-6 is-information"><img class="center-block sidebar-img" alt="Illustration of a computer"
-              src="images/app_graphics/step_3.svg">
-          </div>
-          <div class="column">
-            <div class="box">
-              <ol>ഈ സ്വകാര്യതാനയം ജനറേറ്റർ പൂർണ്ണമായും <b>സൗജന്യമാണ്</b>.
-                <p>നിങ്ങൾക്ക് സാധിക്കുമെങ്കിൽ താഴെപ്പറയുന്ന വിധങ്ങളിൽ ഞങ്ങളെ പിന്തുണയ്ക്കുക:
-                  <li><a href="https://www.digitalmalayali.in/" target="_blank" rel="noopener noreferrer">ഞങ്ങളുടെ
-                      വെബ്സൈറ്റ് സന്ദർശിക്കുക &#127760;</a></li>
-                  <li><a href="https://github.com/digitalmalayali/free-website-privacy-policy-generator" target="_blank"
-                      rel="noopener noreferrer">ഞങ്ങളുടെ ഗിറ്റ്ഹബ്ബ് റിപ്പോയ്ക്ക് ഒരു സ്റ്റാർ നൽകുക &#11088;</a>
-                  </li>
-                  <li>നിങ്ങളുടെ സുഹൃത്തുക്കളുടെ ഇടയിൽ ഈ വെബ് ആപ്പ് പങ്കുവെയ്ക്കുക: <a
-                      href="https://twitter.com/intent/tweet?text=%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%E0%B4%B8%E0%B5%88%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%95%E0%B5%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%8D%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%BF%E0%B5%BD%20%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B5%88%E0%B4%B5%E0%B4%B8%E0%B4%BF%20%E0%B4%AA%E0%B5%8B%E0%B4%B3%E0%B4%BF%E0%B4%B8%E0%B4%BF%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%A3%E0%B5%8B%3F%20%E0%B4%A1%E0%B4%BF%E0%B4%9C%E0%B4%BF%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BD%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%9F%E0%B5%86%20%40DigiMalayali%20%E0%B4%88%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%A4%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%95%E0%B4%BE%E0%B4%B0%E0%B5%8D%E0%B4%AF%E0%B4%A4%E0%B4%BE%E0%B4%A8%E0%B4%AF%E0%B4%82%20%E0%B4%9C%E0%B4%A8%E0%B4%B1%E0%B5%87%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BC%20%E0%B4%A8%E0%B5%8B%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82%F0%9F%98%8D.%20%40nisrulz%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%20%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%20%E0%B4%86%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%B1%E0%B5%86%20%E0%B4%AA%E0%B4%B0%E0%B4%BF%E0%B4%B7%E0%B5%8D%E0%B4%95%E0%B4%B0%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%20%E0%B4%AA%E0%B4%A4%E0%B4%BF%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B4%BE%E0%B4%A3%E0%B4%BF%E0%B4%A4%E0%B5%8D.%20%23malayalam%20%23opensource%20%23privacypolicy%20%23generator%20%23webapp%20%F0%9F%91%87%20&url=%20http%3A%2F%2Fmalayalam-privacy-policy-generator.digitalmalayali.in%2F"
-                      target="_blank" rel="noopener noreferrer">ട്വിറ്റർ, </a>
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://malayalam-privacy-policy-generator.digitalmalayali.in/"
-                      target="_blank" rel="noopener noreferrer">ലിങ്ക്ഡിൻ, </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://malayalam-privacy-policy-generator.digitalmalayali.in/"
-                      target="_blank" rel="noopener noreferrer">ഫേസ്ബുക്ക്, </a>
-                    <a href="https://reddit.com/submit?url=https://malayalam-privacy-policy-generator.digitalmalayali.in/&amp;title=%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%E0%B4%B8%E0%B5%88%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%95%E0%B5%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%8D%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%BF%E0%B5%BD%20%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B5%88%E0%B4%B5%E0%B4%B8%E0%B4%BF%20%E0%B4%AA%E0%B5%8B%E0%B4%B3%E0%B4%BF%E0%B4%B8%E0%B4%BF%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%A3%E0%B5%8B%3F%20%E0%B4%A1%E0%B4%BF%E0%B4%9C%E0%B4%BF%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BD%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%9F%E0%B5%86%20(r%2FDigitalMalayali)%20%E0%B4%88%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%A4%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%95%E0%B4%BE%E0%B4%B0%E0%B5%8D%E0%B4%AF%E0%B4%A4%E0%B4%BE%E0%B4%A8%E0%B4%AF%E0%B4%82%20%E0%B4%9C%E0%B4%A8%E0%B4%B1%E0%B5%87%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BC%20%E0%B4%A8%E0%B5%8B%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82!"
-                      target="_blank" rel="noopener noreferrer">റെഡിറ്റ്, </a>
-                    <a href="whatsapp://send/?text=%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%E0%B4%B8%E0%B5%88%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%95%E0%B5%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%8D%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%BF%E0%B5%BD%20%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B5%88%E0%B4%B5%E0%B4%B8%E0%B4%BF%20%E0%B4%AA%E0%B5%8B%E0%B4%B3%E0%B4%BF%E0%B4%B8%E0%B4%BF%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%A3%E0%B5%8B%3F%20%E0%B4%A1%E0%B4%BF%E0%B4%9C%E0%B4%BF%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BD%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%9F%E0%B5%86%20%E0%B4%88%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%A4%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%95%E0%B4%BE%E0%B4%B0%E0%B5%8D%E0%B4%AF%E0%B4%A4%E0%B4%BE%E0%B4%A8%E0%B4%AF%E0%B4%82%20%E0%B4%9C%E0%B4%A8%E0%B4%B1%E0%B5%87%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BC%20%E0%B4%A8%E0%B5%8B%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82!%20%F0%9F%98%8D%20https://malayalam-privacy-policy-generator.digitalmalayali.in/"
-                      target="_blank" rel="noopener noreferrer">വാട്സാപ്പ്, </a>
-                    <a href="https://t.me/share/url?url=https://malayalam-privacy-policy-generator.digitalmalayali.in/&text=%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%E0%B4%B8%E0%B5%88%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%95%E0%B5%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%8D%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%BF%E0%B5%BD%20%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B5%88%E0%B4%B5%E0%B4%B8%E0%B4%BF%20%E0%B4%AA%E0%B5%8B%E0%B4%B3%E0%B4%BF%E0%B4%B8%E0%B4%BF%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%A3%E0%B5%8B%3F%20%E0%B4%A1%E0%B4%BF%E0%B4%9C%E0%B4%BF%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BD%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%9F%E0%B5%86%20(%40DigitalMalayaliBlog)%20%E0%B4%88%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%A4%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%95%E0%B4%BE%E0%B4%B0%E0%B5%8D%E0%B4%AF%E0%B4%A4%E0%B4%BE%E0%B4%A8%E0%B4%AF%E0%B4%82%20%E0%B4%9C%E0%B4%A8%E0%B4%B1%E0%B5%87%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BC%20%E0%B4%A8%E0%B5%8B%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82!%20%F0%9F%98%8D"
-                      target="_blank" rel="noopener noreferrer">ടെലിഗ്രാം.</a>
-                  </li>
-                  <li>അല്ലെങ്കിൽ പ്രൊജക്റ്റിന്റെ <a
-                      href="https://github.com/digitalmalayali/free-website-privacy-policy-generator/discussions"
-                      target="_blank" rel="noopener noreferrer">ചർച്ചകളിൽ </a>ഒരു നിരൂപണമോ, അഭിപ്രായമോ ചേർക്കുക
-                    &#128172;
-                  </li>
-                </p>
-              </ol>
-            </div>
-            <div class="box final-box"><b>സംഗതി റെഡി!</b><br>
-              <p>ദാ പിടിച്ചോ സ്വകാര്യതാനയം &#128071;</p><a class="button is-danger"
-                @click="togglePrivacyModalVisibility" rel="noopener noreferrer">സ്വകാര്യതാനയം</a><br>
-              <a class="button is-primary" @click="prevStep()" rel="noopener noreferrer">പിറകോട്ട് പോവാൻ</a><br><br>
-              <p class="has-text-grey-light">ഈ വെബ്‌സൈറ്റിൽ സൃഷ്‌ടിച്ച സ്വകാര്യതാനയത്തിന്റെ കൃത്യത
-                നിയമപരമായി ഞങ്ങളുടെ
-                ബാധ്യതയല്ല. നിങ്ങളുടെ സ്വന്തം ഉത്തരവാദിത്വത്തിൽ ഉപയോഗിക്കുക.</p>
-              <p><a class="has-text-danger" @click="toggleDisclaimerModalVisibility" rel="noopener noreferrer">മുഴുവൻ
-                  അറിയിപ്പ് ഇവിടെ വായിക്കാം</a></p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div class="modal" v-bind:class="{ 'is-active': showPrivacyModal }">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title no-select">സ്വകാര്യതാനയം</p>
-            <button class="delete" aria-label="close" @click="togglePrivacyModalVisibility"></button>
-          </header>
-          <section class="modal-card-body modal-box">
-            <div id="privacy_content" v-show="contentRenderType==1"><strong>സ്വകാര്യതാനയം</strong>
-              <p>
-                {{devOrCompanyName}} എന്ന “{{iOrWe}}”, {{siteURL}} എന്ന വെബ് വിലാസത്തിൽ, {{webName}} എന്ന “വെബ്സൈറ്റ്”
-                പ്രവർത്തിപ്പിക്കുന്നു. നിങ്ങളുടെ സ്വകാര്യത {{iOrWe}} ഗൗരവമായി കണക്കാക്കുന്നു. സൈറ്റിന്റെ
-                ഉപയോക്താക്കളിൽ നിന്ന് {{meOrUs}} ലഭിക്കുന്ന വ്യക്തിഗതവിവരങ്ങളുടെ ശേഖരണം, ഉപയോഗം,
-                വെളിപ്പെടുത്തൽ എന്നിവ സംബന്ധിച്ച {{myOrOur}} നയങ്ങൾ ഈ പേജ് നിങ്ങളെ അറിയിക്കുന്നു. മാത്രമാണ്
-                നിങ്ങളുടെ സ്വകാര്യവിവരങ്ങൾ {{iOrWe}} ഉപയോഗിക്കുന്നത്. സൈറ്റ് ഉപയോഗിക്കുന്നതിലൂടെ,
-                ഈ നയത്തിന് അനുസൃതമായി വിവരശേഖരണവും ഉപയോഗവും നിങ്ങൾ അംഗീകരിക്കുന്നു.
-              </p>
-              <p><strong>വിവരശേഖരണവും ഉപയോഗവും</strong></p>
-              <p>
-                ഈ വെബ്സൈറ്റ് അതിന്റെ സന്ദർശകരെക്കുറിച്ചുള്ള അടിസ്ഥാനവിവരങ്ങൾ ശേഖരിക്കുന്നു. കൂടാതെ,
-                {{myOrOur}} സൈറ്റ് ഉപയോഗിക്കുമ്പോൾ, നിങ്ങളെ ബന്ധപ്പെടുന്നതിനോ തിരിച്ചറിയുന്നതിനോ ഉപയോഗിക്കാവുന്ന,
-                വ്യക്തിപരമായി തിരിച്ചറിയാനാകുന്ന, ചില വിവരങ്ങൾ {{meOrUs}} നൽകാൻ {{iOrWe}} നിങ്ങളോട്
-                ആവശ്യപ്പെട്ടേക്കാം. പേര്, ഇ-മെയിൽ ഉൾപ്പെടെ, എന്നാൽ അതിൽ മാത്രം പരിമിതപ്പെടുത്താത്ത,
-                വ്യക്തിപരമായ വിവരങ്ങൾ.
-              </p>
-              <p><strong>ലോഗ് ഡാറ്റ</strong></p>
-              <p>
-                പല സൈറ്റ് ഓപ്പറേറ്റർമാരെയും പോലെ, നിങ്ങൾ {{myOrOur}} സൈറ്റ് സന്ദർശിക്കുമ്പോഴെല്ലാം
-                നിങ്ങളുടെ ബ്രൗസർ അയയ്ക്കുന്ന വിവരങ്ങൾ (“ലോഗ് ഡാറ്റ”) {{iOrWe}} ശേഖരിക്കുന്നു. ഈ
-                ലോഗ് ഡാറ്റയിൽ നിങ്ങളുടെ കമ്പ്യൂട്ടറിന്റെ ഇന്റർനെറ്റ് പ്രോട്ടോക്കോൾ (“ഐപി”) വിലാസം,
-                ബ്രൗസർ തരം, ബ്രൗസർ പതിപ്പ്, നിങ്ങൾ സന്ദർശിക്കുന്ന {{myOrOur}} സൈറ്റിന്റെ പേജുകൾ,
-                നിങ്ങളുടെ സന്ദർശനസമയവും തിയ്യതിയും, ആ പേജുകളിൽ ചെലവഴിച്ച സമയവും മറ്റും
-                സ്ഥിതിവിവരക്കണക്കുകളും ഉൾപ്പെട്ടേക്കാം.
-              </p>
-              <p><strong>കുക്കികൾ</strong></p>
-              <p>
-                ചെറിയ അളവിൽ ഡാറ്റയുള്ള ഫയലുകളാണ് കുക്കികൾ. അതിൽ അജ്ഞാതമായ ഒരു അദ്വിതീയ
-                ഐഡന്റിഫയർ ഉൾപ്പെട്ടേക്കാം. ഒരു വെബ്‌സൈറ്റിൽ നിന്ന് നിങ്ങളുടെ ബ്രൗസറിലേക്ക് കുക്കികൾ
-                അയയ്‌ക്കുകയും നിങ്ങളുടെ കമ്പ്യൂട്ടറിന്റെ ഹാർഡ് ഡ്രൈവിൽ അവ സംഭരിക്കുകയും ചെയ്യുന്നു.
-                പല സൈറ്റുകളെയും പോലെ, വിവരങ്ങൾ ശേഖരിക്കാൻ {{iOrWe}} “കുക്കികൾ” ഉപയോഗിക്കുന്നു.
-                എല്ലാ കുക്കികളും നിരസിക്കുന്നതിനോ ഒരു കുക്കി എപ്പോൾ അയക്കണമെന്ന് തീരുമാനിക്കുന്നതിനോ
-                നിങ്ങളുടെ ബ്രൗസറിന് നിർദ്ദേശം നൽകാം. എന്നിരുന്നാലും, നിങ്ങൾ കുക്കികൾ സ്വീകരിക്കുന്നില്ലെങ്കിൽ,
-                {{myOrOur}} സൈറ്റിന്റെ ചില ഭാഗങ്ങൾ നിങ്ങൾക്ക് ഉപയോഗിക്കാൻ കഴിഞ്ഞേക്കില്ല.
-              </p>
-              <p><strong>പരസ്യങ്ങളും മൂന്നാംകക്ഷികളും</strong></p>
-              <p>
-                പരസ്യദാതാക്കളും മൂന്നാംകക്ഷികളും ചിലപ്പോൾ സൈറ്റിൽ പരസ്യങ്ങൾ പ്രദർശപ്പിക്കുന്നതിന്റെ ഭാഗമായോ
-                മറ്റു ഉപയോഗപ്രദമായ വിവരശേഖരണത്തിനോ വേണ്ടി സന്ദർശകരുടെ പ്രവർത്തനങ്ങൾ നിരീക്ഷിക്കാൻ
-                കുക്കികളും, സ്ക്രിപ്റ്റുകളും, വെബ് ബീക്കണുകളും ഉപയോഗിച്ചേക്കാം. അത്തരം നിരീക്ഷണങ്ങൾ മൂന്നാംകക്ഷികൾ
-                നേരിട്ട്, അവരുടെ സ്വകാര്യതാനയങ്ങളുടെ ഭാഗമായി, അവരുടെ സെർവറുകൾ വഴി നടത്തുന്നതാണ്.
-                അത്തരം നിരീക്ഷണങ്ങളുടെ മേൽ {{meOrUs}} നിയന്ത്രണമോ പ്രവേശനമോ ഇല്ല എന്ന് വ്യക്തമാക്കുന്നു.
-              </p>
-              <div v-if="hasThirdPartyServicesSelected">
-                <p>
-                  അവരുടെ സ്വകാര്യതാനയം {{meOrUs3}} നിന്നും വ്യത്യസ്തമായിരിക്കും എന്നത് ശ്രദ്ധിക്കുക. അവയുടെ
-                  മേൽ {{meOrUs}} ബാധ്യതയുണ്ടായിരിക്കില്ല.
-                </p>
-                <p>
-                  സൈറ്റ് ഉപയോഗിക്കുന്ന മൂന്നാംകക്ഷി സേവനദാതാക്കളുടെ സ്വകാര്യതാനയത്തിലേക്കുള്ള കണ്ണികൾ:
-                </p>
-                <ul>
-                  <li v-if="item[item.model] &amp;&amp; item.link.privacy" v-for="item in thirdPartyServices"><a
-                      :href="item.link.privacy" target="_blank" rel="noopener noreferrer">{{item.name}}</a></li>
-                </ul>
-              </div>
-              <p><strong>സുരക്ഷ</strong></p>
-              <p>
-                നിങ്ങളുടെ സ്വകാര്യവിവരങ്ങൾ {{meOrUs}} നൽകുന്നതിൽ നിങ്ങളുടെ വിശ്വാസത്തെ {{iOrWe}}
-                വിലമതിക്കുന്നു, അതിനാൽ വാണിജ്യപരമായി സ്വീകാര്യമായ മാർഗ്ഗങ്ങൾ ഉപയോഗിക്കാൻ {{iOrWe}}
-                ശ്രമിക്കുന്നു. എന്നാൽ ഇൻറർനെറ്റിലൂടെ സംപ്രേഷണം ചെയ്യുന്ന രീതികളോ ഇലക്ട്രോണിക് സ്റ്റോറേജ്
-                രീതിയോ 100% സുരക്ഷിതവും വിശ്വസനീയവുമല്ല, മാത്രമല്ല അതിന്റെ സമ്പൂർണ്ണസുരക്ഷ {{meOrUs}}
-                ഉറപ്പുനൽകാൻ കഴിയില്ലെന്നും ഓർമ്മിക്കുക.
-              </p>
-              <p><strong>ഈ സ്വകാര്യതാനയത്തിന്റെ മാറ്റങ്ങൾ</strong></p>
-              <p>
-                ഈ സ്വകാര്യതാനയം <strong>{{effectiveFromDate}}</strong> മുതൽ പ്രാബല്യത്തിലുണ്ട്. അതിനെ സംബന്ധിക്കുന്ന
-                എന്തെങ്കിലും മാറ്റങ്ങളില്ലാത്തപക്ഷം അപ്രകാരം തന്നെ തുടരുകയും ചെയ്യും. {{iOrWe}} {{myOrOur}}
-                സ്വകാര്യതാനയം കാലാകാലങ്ങളിൽ പുതുക്കിയേക്കാമെന്നും അതിനുള്ള അവകാശം {{meOrUs3}}
-                നിക്ഷിപ്തമാണെന്നും നിങ്ങളെ അറിയിക്കുന്നു. അതിനാൽ, എന്തെങ്കിലും മാറ്റങ്ങൾക്കായി ഈ പേജ്
-                ഇടയ്ക്കിടെ അവലോകനം ചെയ്യാൻ നിങ്ങളോട് നിർദ്ദേശിക്കുന്നു. ഈ പേജിൽ സ്വകാര്യതാനയം
-                പുതുക്കുമ്പോൾ {{iOrWe}} സാമൂഹ്യമാധ്യമങ്ങളിലൂടെയോ ഇമെയിൽ വഴിയോ നിങ്ങളെ അറിയിക്കും.
-                ഈ മാറ്റങ്ങൾ ഈ പേജിൽ പോസ്റ്റുചെയ്ത ഉടൻ തന്നെ പ്രാബല്യത്തിൽ വരുന്നതാണ്.
-              </p>
-              <p><strong>ബന്ധപ്പെടാൻ</strong></p>
-              <p>
-                ഈ സ്വകാര്യതാനയത്തെക്കുറിച്ചുള്ള ഏത് ചോദ്യങ്ങൾക്കും സംശയങ്ങൾക്കും, ദയവായി {{webContact}}
-                എന്ന ഇ-മെയിൽ വിലാസത്തിൽ {{meOrUs2}} ബന്ധപ്പെടുക.
-              </p>
-              <p>
-                {{companyAddIn}}
-              </p><br>
-              <p>ഈ സ്വകാര്യതാനയം <a href="https://malayalam-privacy-policy-generator.digitalmalayali.in/"
-                  target="_blank" rel="noopener noreferrer">സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്റർ</a> ഉപയോഗിച്ച്
-                സൃഷ്ടിച്ചതാണ്.</p>
-            </div>
-            <textarea class="textarea" id="privacy_txtarea" onclick="this.focus();this.select()" readonly="readonly"
-              v-show="contentRenderType==2"></textarea>
-          </section>
-          <footer class="modal-card-foot">
-            <button class="button is-success" @click="getHtml('privacy_content','privacy_txtarea')">HTML</button>
-            <button class="button is-success"
-              @click="getMarkdown('privacy_content', 'privacy_txtarea')">Markdown</button>
-            <button class="button is-success" v-if="contentRenderType!=1" @click="preview()">പ്രിവ്യൂ</button>
-            <button class="button is-danger" id="copybtn" data-clipboard-target="#privacy_content">പകർത്തുക</button>
-          </footer>
-        </div>
+  <section class="section" id="step-1" v-if="wizardStep==1">
+    <div class="columns">
+      <div class="column is-6 is-information"><img class="center-block sidebar-img"
+          alt="Welcome to Privacy Policy Generator" src="images/app_graphics/step_1.svg">
+          <!-- Ad -->
+          <script async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3855750928963104"
+          crossorigin="anonymous"></script>
+        <!-- Privacy Policy Generator Ad -->
+        <ins class="adsbygoogle" style="display:inline-block;width:500px;height:100px"
+          data-ad-client="ca-pub-3855750928963104" data-ad-slot="9758959384"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <!-- Ad -->
       </div>
-      <div class="modal" v-bind:class="{ 'is-active': showDisclaimerModal }">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title">അറിയിപ്പ്</p>
-            <button class="delete" aria-label="close" @click="toggleDisclaimerModalVisibility"></button>
-          </header>
-          <section class="modal-card-body">
-            <p>
-              സ്വകാര്യതാനയത്തിനായുള്ള ഈ ടെംപ്ലേറ്റ് വാറന്റികളോ വ്യവസ്ഥകളോ ഇല്ലാതെ, അവ പ്രകടിപ്പിക്കുകയോ
-              സൂചിപ്പിക്കുകയോ ചെയ്യാതെയാണ് നൽകിയിരിക്കുന്നത്. ഇത് നിങ്ങൾക്ക് ഒരു പ്രചോദനാത്മകരേഖയായിട്ടാണ്
-              ഉദ്ദേശിച്ചിട്ടുള്ളത്. നിങ്ങളുടെ സ്വകാര്യതാനയം സൃഷ്ടിക്കുമ്പോൾ നിങ്ങൾക്കിത് ഉപയോഗിക്കാം. നിങ്ങളുടെ
-              വെബ്‌സൈറ്റ് ഒരു സ്വതന്ത്രലൈസൻസിന് കീഴിലാണെങ്കിൽ, അതിനനുസരിച്ച് നിങ്ങൾ സൃഷ്ടിക്കപ്പെട്ട
-              സ്വകാര്യതാനയം പരിഷ്‌ക്കരിക്കേണ്ടതുണ്ട്. സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്ററിന്റെ ഡെവലപ്പർ ഈ
-              സ്വകാര്യതാനയത്തിന്റെ ഉപയോഗവുമായി ബന്ധപ്പെട്ട നിയമപരമായ പ്രത്യാഘാതങ്ങൾക്ക് ഒരു
-              ഉത്തരവാദിത്വവും ഏറ്റെടുക്കുന്നില്ല. കൂടാതെ, നിങ്ങളുടെ വെബ്‌സൈറ്റിന്റെ ഉപയോക്താക്കൾക്കും
-              സന്ദർശകർക്കും ബാധകമായ എല്ലാ നിയമങ്ങളും പാലിക്കുന്നുണ്ടെന്ന് ഉറപ്പാക്കാനായി
-              സ്വതന്ത്രനിയമോപദേശം തേടാൻ നിങ്ങളെ ഞങ്ങൾ പ്രേരിപ്പിക്കുന്നു. ഇവിടെ സൃഷ്ടിക്കപ്പെട്ട
-              നയത്തിന്റെ ഉപയോഗം മൂലം വ്യക്തിക്കോ/കമ്പനിക്കോ നേരിട്ടോ അല്ലാതെയോ ഉണ്ടാകുന്ന
-              ഏതെങ്കിലും നാശങ്ങൾക്ക്/നഷ്ടത്തിന് സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്ററിന്റെ ഡെവലപ്പർ ഒരു
-              തരത്തിലും ഉത്തരവാദിയല്ല എന്ന് വ്യക്തമാക്കുന്നു.
-            </p>
-          </section>
-          <footer class="modal-card-foot">
-            <button class="button is-info" aria-label="close" @click="toggleDisclaimerModalVisibility">ശരി</button>
-          </footer>
+      <div class="column box scrollable">
+        <div class="control is-expanded">
+          <p class="help form-label">വെബ്സൈറ്റിന്റെ പേര്</p>
+          <input class="input" type="text" required v-model="webName" placeholder="ഡിജിറ്റൽ മലയാളി"
+            v-bind:class="{ 'is-danger': (webName == 'ദയവായി വെബ്സൈറ്റിന്റെ പേര് നൽകുക!' || webName.length == 0) }">
+        </div>
+        <div class="control is-expanded">
+          <p class="help form-label">ഇ-മെയിൽ</p>
+          <input class="input" type="email" required v-model="webContact" placeholder="contact@digitalmalayali.in"
+            v-bind:class="{ 'is-danger': (webContact == 'ദയവായി ബന്ധപ്പെടാനുള്ള ഇമെയിൽ നൽകുക!' || webContact.length == 0) }">
+        </div>
+        <div class="control is-expanded">
+          <p class="help form-label">വെബ്സൈറ്റ് യു.ആർ.എൽ.</p>
+          <input class="input" type="text" required v-model="siteURL" placeholder="https://www.digitalmalayali.in"
+            v-bind:class="{ 'is-danger': (siteURL == 'ദയവായി വെബ്സൈറ്റ് യു.ആർ.എൽ. നൽകുക!' || siteURL.length == 0) }">
+        </div>
+        <div class="control">
+          <p class="help form-label">നയം പ്രാബല്യത്തിൽ വരുന്ന തിയ്യതി</p>
+          <!-- നയം പ്രാബല്യത്തിൽ വരുന്ന തിയ്യതി-->
+          <input class="input is-primary" type="date" required="" v-model="effectiveFromDate">
+        </div>
+        <div class="control is-expanded">
+          <p class="help form-label">ഉടമസ്ഥൻ</p>
+          <!-- ഉടമസ്ഥൻ-->
+          <div class="select" v-bind:class="{ 'is-danger': (typeOfDev.length == 0) }">
+            <select v-model="typeOfDev">
+              <option value="" disabled="">തരം</option>
+              <option>വ്യക്തി</option>
+              <option>കമ്പനി</option>
+            </select>
+          </div>
+        </div>
+        <div class="control is-expanded" v-if="typeOfDev=='കമ്പനി'">
+          <p class="help form-label">കമ്പനിയുടെ പേര്</p>
+          <!-- കമ്പനിയുടെ പേര്-->
+          <input class="input is-primary" type="text" v-model="companyName" placeholder="ഡിജിറ്റൽ മലയാളി">
+        </div>
+        <div class="control is-expanded" v-if="typeOfDev=='കമ്പനി'">
+          <p class="help form-label">കമ്പനിയുടെ വിലാസം</p>
+          <!-- കമ്പനിയുടെ വിലാസം-->
+          <input class="input is-primary" type="text" v-model="companyAdd" placeholder="ഡിജിറ്റൽ മലയാളി, കേരളം, ഇന്ത്യ">
+        </div>
+        <div class="control is-expanded" v-if="typeOfDev=='വ്യക്തി'">
+          <p class="help form-label">പേര്</p>
+          <!-- ഡെവലപ്പറുടെ പേര്-->
+          <input class="input is-primary" type="text" v-model="devName" placeholder="പേര്">
+        </div>
+        <a class="button is-primary" @click="nextStep()" rel="noopener noreferrer">അടുത്തത്</a>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="step-2" v-if="wizardStep==2">
+    <div class="columns">
+      <div class="column is-6 is-information"><img class="center-block sidebar-img"
+          alt="Illustration to depict selections" src="images/app_graphics/step_2.svg">
+          <!-- Ad -->
+          <script async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3855750928963104"
+          crossorigin="anonymous"></script>
+        <!-- Privacy Policy Generator Ad -->
+        <ins class="adsbygoogle" style="display:inline-block;width:500px;height:100px"
+          data-ad-client="ca-pub-3855750928963104" data-ad-slot="9758959384"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <!-- Ad -->
+      </div>
+      <div class="column">
+        <div class="column box scrollable"><b>മൂന്നാംകക്ഷി സേവനങ്ങളിലേക്കുള്ള കണ്ണികൾ</b><a
+            v-for="item in thirdPartyServices" rel="noopener noreferrer"><br>
+            <input type="checkbox" :id="'list-switch-' + item.model" v-model="item[item.model]">
+            <label :for="'list-switch-' + item.model"><img class="thirdparty-logo" :src="item.logo"
+                :alt="item.name"><span class="thirdparty-text">{{ item.name }}</span></label></a>
+        </div>
+        <a class="button is-primary" @click="prevStep()" rel="noopener noreferrer">പിന്നോട്ട്</a>
+        <a class="button is-primary" @click="nextStep()" rel="noopener noreferrer">അടുത്തത്</a>
+        <div class="box">
+          <p class="has-text-grey-light">എല്ലാ വ്യാപാരമുദ്രകളും ലോഗോകളും ബ്രാൻഡ് നാമങ്ങളും
+            അവയുടെ ഉടമസ്ഥരുടെ സ്വത്താണ്. മുകളിൽ ഉപയോഗിച്ചിരിക്കുന്ന എല്ലാ കമ്പനികളുടെയും
+            ഉൽപ്പന്നങ്ങളുടെയും സേവനങ്ങളുടെയും പേരുകൾ തിരിച്ചറിയൽ ആവശ്യങ്ങൾക്ക് മാത്രമുള്ളതാണ്.
+            ഈ പേരുകൾ, വ്യാപാരമുദ്രകൾ, ബ്രാൻഡുകൾ എന്നിവയുടെ ഉപയോഗം ഈ വെബ്
+            ആപ്പിനുള്ള അംഗീകാരത്തെ സൂചിപ്പിക്കുന്നില്ല.</p>
         </div>
       </div>
     </div>
+  </section>
+  <section class="section" id="step-3" v-if="wizardStep==3">
+    <div class="columns">
+      <div class="column is-6 is-information"><img class="center-block sidebar-img" alt="Illustration of a computer"
+          src="images/app_graphics/step_3.svg">
+          <!-- Ad -->
+          <script async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3855750928963104"
+          crossorigin="anonymous"></script>
+        <!-- Privacy Policy Generator Ad -->
+        <ins class="adsbygoogle" style="display:inline-block;width:500px;height:100px"
+          data-ad-client="ca-pub-3855750928963104" data-ad-slot="9758959384"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <!-- Ad -->
+      </div>
+      <div class="column">
+        <div class="box">
+          <ol>ഈ സ്വകാര്യതാനയം ജനറേറ്റർ പൂർണ്ണമായും <b>സൗജന്യമാണ്</b>.
+            <p>നിങ്ങൾക്ക് സാധിക്കുമെങ്കിൽ താഴെപ്പറയുന്ന വിധങ്ങളിൽ ഞങ്ങളെ പിന്തുണയ്ക്കുക:
+              <li><a href="https://www.digitalmalayali.in/" target="_blank" rel="noopener noreferrer">ഞങ്ങളുടെ
+                  വെബ്സൈറ്റ് സന്ദർശിക്കുക &#127760;</a></li>
+              <li><a href="https://github.com/digitalmalayali/free-website-privacy-policy-generator" target="_blank"
+                  rel="noopener noreferrer">ഞങ്ങളുടെ ഗിറ്റ്ഹബ്ബ് റിപ്പോയ്ക്ക് ഒരു സ്റ്റാർ നൽകുക &#11088;</a>
+              </li>
+              <li>നിങ്ങളുടെ സുഹൃത്തുക്കളുടെ ഇടയിൽ ഈ വെബ് ആപ്പ് പങ്കുവെയ്ക്കുക: <a
+                  href="https://twitter.com/intent/tweet?text=%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%E0%B4%B8%E0%B5%88%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%95%E0%B5%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%8D%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%BF%E0%B5%BD%20%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B5%88%E0%B4%B5%E0%B4%B8%E0%B4%BF%20%E0%B4%AA%E0%B5%8B%E0%B4%B3%E0%B4%BF%E0%B4%B8%E0%B4%BF%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%A3%E0%B5%8B%3F%20%E0%B4%A1%E0%B4%BF%E0%B4%9C%E0%B4%BF%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BD%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%9F%E0%B5%86%20%40DigiMalayali%20%E0%B4%88%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%A4%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%95%E0%B4%BE%E0%B4%B0%E0%B5%8D%E0%B4%AF%E0%B4%A4%E0%B4%BE%E0%B4%A8%E0%B4%AF%E0%B4%82%20%E0%B4%9C%E0%B4%A8%E0%B4%B1%E0%B5%87%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BC%20%E0%B4%A8%E0%B5%8B%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82%F0%9F%98%8D.%20%40nisrulz%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%20%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%20%E0%B4%86%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%B1%E0%B5%86%20%E0%B4%AA%E0%B4%B0%E0%B4%BF%E0%B4%B7%E0%B5%8D%E0%B4%95%E0%B4%B0%E0%B4%BF%E0%B4%9A%E0%B5%8D%E0%B4%9A%20%E0%B4%AA%E0%B4%A4%E0%B4%BF%E0%B4%AA%E0%B5%8D%E0%B4%AA%E0%B4%BE%E0%B4%A3%E0%B4%BF%E0%B4%A4%E0%B5%8D.%20%23malayalam%20%23opensource%20%23privacypolicy%20%23generator%20%23webapp%20%F0%9F%91%87%20&url=%20http%3A%2F%2Fmalayalam-privacy-policy-generator.digitalmalayali.in%2F"
+                  target="_blank" rel="noopener noreferrer">ട്വിറ്റർ, </a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://malayalam-privacy-policy-generator.digitalmalayali.in/"
+                  target="_blank" rel="noopener noreferrer">ലിങ്ക്ഡിൻ, </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://malayalam-privacy-policy-generator.digitalmalayali.in/"
+                  target="_blank" rel="noopener noreferrer">ഫേസ്ബുക്ക്, </a>
+                <a href="https://reddit.com/submit?url=https://malayalam-privacy-policy-generator.digitalmalayali.in/&amp;title=%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%E0%B4%B8%E0%B5%88%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%95%E0%B5%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%8D%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%BF%E0%B5%BD%20%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B5%88%E0%B4%B5%E0%B4%B8%E0%B4%BF%20%E0%B4%AA%E0%B5%8B%E0%B4%B3%E0%B4%BF%E0%B4%B8%E0%B4%BF%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%A3%E0%B5%8B%3F%20%E0%B4%A1%E0%B4%BF%E0%B4%9C%E0%B4%BF%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BD%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%9F%E0%B5%86%20(r%2FDigitalMalayali)%20%E0%B4%88%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%A4%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%95%E0%B4%BE%E0%B4%B0%E0%B5%8D%E0%B4%AF%E0%B4%A4%E0%B4%BE%E0%B4%A8%E0%B4%AF%E0%B4%82%20%E0%B4%9C%E0%B4%A8%E0%B4%B1%E0%B5%87%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BC%20%E0%B4%A8%E0%B5%8B%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82!"
+                  target="_blank" rel="noopener noreferrer">റെഡിറ്റ്, </a>
+                <a href="whatsapp://send/?text=%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%E0%B4%B8%E0%B5%88%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%95%E0%B5%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%8D%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%BF%E0%B5%BD%20%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B5%88%E0%B4%B5%E0%B4%B8%E0%B4%BF%20%E0%B4%AA%E0%B5%8B%E0%B4%B3%E0%B4%BF%E0%B4%B8%E0%B4%BF%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%A3%E0%B5%8B%3F%20%E0%B4%A1%E0%B4%BF%E0%B4%9C%E0%B4%BF%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BD%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%9F%E0%B5%86%20%E0%B4%88%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%A4%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%95%E0%B4%BE%E0%B4%B0%E0%B5%8D%E0%B4%AF%E0%B4%A4%E0%B4%BE%E0%B4%A8%E0%B4%AF%E0%B4%82%20%E0%B4%9C%E0%B4%A8%E0%B4%B1%E0%B5%87%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BC%20%E0%B4%A8%E0%B5%8B%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82!%20%F0%9F%98%8D%20https://malayalam-privacy-policy-generator.digitalmalayali.in/"
+                  target="_blank" rel="noopener noreferrer">വാട്സാപ്പ്, </a>
+                <a href="https://t.me/share/url?url=https://malayalam-privacy-policy-generator.digitalmalayali.in/&text=%E0%B4%B5%E0%B5%86%E0%B4%AC%E0%B5%8D%E0%B4%B8%E0%B5%88%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%81%E0%B4%95%E0%B5%BE%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%8D%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%A4%E0%B5%8D%E0%B4%A4%E0%B4%BF%E0%B5%BD%20%E0%B4%AA%E0%B5%8D%E0%B4%B0%E0%B5%88%E0%B4%B5%E0%B4%B8%E0%B4%BF%20%E0%B4%AA%E0%B5%8B%E0%B4%B3%E0%B4%BF%E0%B4%B8%E0%B4%BF%20%E0%B4%B8%E0%B5%83%E0%B4%B7%E0%B5%8D%E0%B4%9F%E0%B4%BF%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B4%A3%E0%B5%8B%3F%20%E0%B4%A1%E0%B4%BF%E0%B4%9C%E0%B4%BF%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BD%20%E0%B4%AE%E0%B4%B2%E0%B4%AF%E0%B4%BE%E0%B4%B3%E0%B4%BF%E0%B4%AF%E0%B5%81%E0%B4%9F%E0%B5%86%20(%40DigitalMalayaliBlog)%20%E0%B4%88%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%A4%E0%B4%A8%E0%B5%8D%E0%B4%A4%E0%B5%8D%E0%B4%B0%20%E0%B4%B8%E0%B5%8D%E0%B4%B5%E0%B4%95%E0%B4%BE%E0%B4%B0%E0%B5%8D%E0%B4%AF%E0%B4%A4%E0%B4%BE%E0%B4%A8%E0%B4%AF%E0%B4%82%20%E0%B4%9C%E0%B4%A8%E0%B4%B1%E0%B5%87%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B5%BC%20%E0%B4%A8%E0%B5%8B%E0%B4%95%E0%B5%8D%E0%B4%95%E0%B5%82!%20%F0%9F%98%8D"
+                  target="_blank" rel="noopener noreferrer">ടെലിഗ്രാം.</a>
+              </li>
+              <li>അല്ലെങ്കിൽ പ്രൊജക്റ്റിന്റെ <a
+                  href="https://github.com/digitalmalayali/free-website-privacy-policy-generator/discussions"
+                  target="_blank" rel="noopener noreferrer">ചർച്ചകളിൽ </a>ഒരു നിരൂപണമോ, അഭിപ്രായമോ ചേർക്കുക
+                &#128172;
+              </li>
+            </p>
+          </ol>
+        </div>
+        <div class="box final-box"><b>സംഗതി റെഡി!</b><br>
+          <p>ദാ പിടിച്ചോ സ്വകാര്യതാനയം &#128071;</p><a class="button is-danger" @click="togglePrivacyModalVisibility"
+            rel="noopener noreferrer">സ്വകാര്യതാനയം</a><br>
+          <a class="button is-primary" @click="prevStep()" rel="noopener noreferrer">പിറകോട്ട് പോവാൻ</a><br><br>
+          <p class="has-text-grey-light">ഈ വെബ്‌സൈറ്റിൽ സൃഷ്‌ടിച്ച സ്വകാര്യതാനയത്തിന്റെ കൃത്യത
+            നിയമപരമായി ഞങ്ങളുടെ
+            ബാധ്യതയല്ല. നിങ്ങളുടെ സ്വന്തം ഉത്തരവാദിത്വത്തിൽ ഉപയോഗിക്കുക.</p>
+          <p><a class="has-text-danger" @click="toggleDisclaimerModalVisibility" rel="noopener noreferrer">മുഴുവൻ
+              അറിയിപ്പ് ഇവിടെ വായിക്കാം</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="modal" v-bind:class="{ 'is-active': showPrivacyModal }">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title no-select">സ്വകാര്യതാനയം</p>
+        <button class="delete" aria-label="close" @click="togglePrivacyModalVisibility"></button>
+      </header>
+      <section class="modal-card-body modal-box">
+        <div id="privacy_content" v-show="contentRenderType==1"><strong>സ്വകാര്യതാനയം</strong>
+          <p>
+            {{devOrCompanyName}} എന്ന “{{iOrWe}}”, {{siteURL}} എന്ന വെബ് വിലാസത്തിൽ, {{webName}} എന്ന “വെബ്സൈറ്റ്”
+            പ്രവർത്തിപ്പിക്കുന്നു. നിങ്ങളുടെ സ്വകാര്യത {{iOrWe}} ഗൗരവമായി കണക്കാക്കുന്നു. സൈറ്റിന്റെ
+            ഉപയോക്താക്കളിൽ നിന്ന് {{meOrUs}} ലഭിക്കുന്ന വ്യക്തിഗതവിവരങ്ങളുടെ ശേഖരണം, ഉപയോഗം,
+            വെളിപ്പെടുത്തൽ എന്നിവ സംബന്ധിച്ച {{myOrOur}} നയങ്ങൾ ഈ പേജ് നിങ്ങളെ അറിയിക്കുന്നു. മാത്രമാണ്
+            നിങ്ങളുടെ സ്വകാര്യവിവരങ്ങൾ {{iOrWe}} ഉപയോഗിക്കുന്നത്. സൈറ്റ് ഉപയോഗിക്കുന്നതിലൂടെ,
+            ഈ നയത്തിന് അനുസൃതമായി വിവരശേഖരണവും ഉപയോഗവും നിങ്ങൾ അംഗീകരിക്കുന്നു.
+          </p>
+          <p><strong>വിവരശേഖരണവും ഉപയോഗവും</strong></p>
+          <p>
+            ഈ വെബ്സൈറ്റ് അതിന്റെ സന്ദർശകരെക്കുറിച്ചുള്ള അടിസ്ഥാനവിവരങ്ങൾ ശേഖരിക്കുന്നു. കൂടാതെ,
+            {{myOrOur}} സൈറ്റ് ഉപയോഗിക്കുമ്പോൾ, നിങ്ങളെ ബന്ധപ്പെടുന്നതിനോ തിരിച്ചറിയുന്നതിനോ ഉപയോഗിക്കാവുന്ന,
+            വ്യക്തിപരമായി തിരിച്ചറിയാനാകുന്ന, ചില വിവരങ്ങൾ {{meOrUs}} നൽകാൻ {{iOrWe}} നിങ്ങളോട്
+            ആവശ്യപ്പെട്ടേക്കാം. പേര്, ഇ-മെയിൽ ഉൾപ്പെടെ, എന്നാൽ അതിൽ മാത്രം പരിമിതപ്പെടുത്താത്ത,
+            വ്യക്തിപരമായ വിവരങ്ങൾ.
+          </p>
+          <p><strong>ലോഗ് ഡാറ്റ</strong></p>
+          <p>
+            പല സൈറ്റ് ഓപ്പറേറ്റർമാരെയും പോലെ, നിങ്ങൾ {{myOrOur}} സൈറ്റ് സന്ദർശിക്കുമ്പോഴെല്ലാം
+            നിങ്ങളുടെ ബ്രൗസർ അയയ്ക്കുന്ന വിവരങ്ങൾ (“ലോഗ് ഡാറ്റ”) {{iOrWe}} ശേഖരിക്കുന്നു. ഈ
+            ലോഗ് ഡാറ്റയിൽ നിങ്ങളുടെ കമ്പ്യൂട്ടറിന്റെ ഇന്റർനെറ്റ് പ്രോട്ടോക്കോൾ (“ഐപി”) വിലാസം,
+            ബ്രൗസർ തരം, ബ്രൗസർ പതിപ്പ്, നിങ്ങൾ സന്ദർശിക്കുന്ന {{myOrOur}} സൈറ്റിന്റെ പേജുകൾ,
+            നിങ്ങളുടെ സന്ദർശനസമയവും തിയ്യതിയും, ആ പേജുകളിൽ ചെലവഴിച്ച സമയവും മറ്റും
+            സ്ഥിതിവിവരക്കണക്കുകളും ഉൾപ്പെട്ടേക്കാം.
+          </p>
+          <p><strong>കുക്കികൾ</strong></p>
+          <p>
+            ചെറിയ അളവിൽ ഡാറ്റയുള്ള ഫയലുകളാണ് കുക്കികൾ. അതിൽ അജ്ഞാതമായ ഒരു അദ്വിതീയ
+            ഐഡന്റിഫയർ ഉൾപ്പെട്ടേക്കാം. ഒരു വെബ്‌സൈറ്റിൽ നിന്ന് നിങ്ങളുടെ ബ്രൗസറിലേക്ക് കുക്കികൾ
+            അയയ്‌ക്കുകയും നിങ്ങളുടെ കമ്പ്യൂട്ടറിന്റെ ഹാർഡ് ഡ്രൈവിൽ അവ സംഭരിക്കുകയും ചെയ്യുന്നു.
+            പല സൈറ്റുകളെയും പോലെ, വിവരങ്ങൾ ശേഖരിക്കാൻ {{iOrWe}} “കുക്കികൾ” ഉപയോഗിക്കുന്നു.
+            എല്ലാ കുക്കികളും നിരസിക്കുന്നതിനോ ഒരു കുക്കി എപ്പോൾ അയക്കണമെന്ന് തീരുമാനിക്കുന്നതിനോ
+            നിങ്ങളുടെ ബ്രൗസറിന് നിർദ്ദേശം നൽകാം. എന്നിരുന്നാലും, നിങ്ങൾ കുക്കികൾ സ്വീകരിക്കുന്നില്ലെങ്കിൽ,
+            {{myOrOur}} സൈറ്റിന്റെ ചില ഭാഗങ്ങൾ നിങ്ങൾക്ക് ഉപയോഗിക്കാൻ കഴിഞ്ഞേക്കില്ല.
+          </p>
+          <p><strong>പരസ്യങ്ങളും മൂന്നാംകക്ഷികളും</strong></p>
+          <p>
+            പരസ്യദാതാക്കളും മൂന്നാംകക്ഷികളും ചിലപ്പോൾ സൈറ്റിൽ പരസ്യങ്ങൾ പ്രദർശപ്പിക്കുന്നതിന്റെ ഭാഗമായോ
+            മറ്റു ഉപയോഗപ്രദമായ വിവരശേഖരണത്തിനോ വേണ്ടി സന്ദർശകരുടെ പ്രവർത്തനങ്ങൾ നിരീക്ഷിക്കാൻ
+            കുക്കികളും, സ്ക്രിപ്റ്റുകളും, വെബ് ബീക്കണുകളും ഉപയോഗിച്ചേക്കാം. അത്തരം നിരീക്ഷണങ്ങൾ മൂന്നാംകക്ഷികൾ
+            നേരിട്ട്, അവരുടെ സ്വകാര്യതാനയങ്ങളുടെ ഭാഗമായി, അവരുടെ സെർവറുകൾ വഴി നടത്തുന്നതാണ്.
+            അത്തരം നിരീക്ഷണങ്ങളുടെ മേൽ {{meOrUs}} നിയന്ത്രണമോ പ്രവേശനമോ ഇല്ല എന്ന് വ്യക്തമാക്കുന്നു.
+          </p>
+          <div v-if="hasThirdPartyServicesSelected">
+            <p>
+              അവരുടെ സ്വകാര്യതാനയം {{meOrUs3}} നിന്നും വ്യത്യസ്തമായിരിക്കും എന്നത് ശ്രദ്ധിക്കുക. അവയുടെ
+              മേൽ {{meOrUs}} ബാധ്യതയുണ്ടായിരിക്കില്ല.
+            </p>
+            <p>
+              സൈറ്റ് ഉപയോഗിക്കുന്ന മൂന്നാംകക്ഷി സേവനദാതാക്കളുടെ സ്വകാര്യതാനയത്തിലേക്കുള്ള കണ്ണികൾ:
+            </p>
+            <ul>
+              <li v-if="item[item.model] &amp;&amp; item.link.privacy" v-for="item in thirdPartyServices"><a
+                  :href="item.link.privacy" target="_blank" rel="noopener noreferrer">{{item.name}}</a></li>
+            </ul>
+          </div>
+          <p><strong>സുരക്ഷ</strong></p>
+          <p>
+            നിങ്ങളുടെ സ്വകാര്യവിവരങ്ങൾ {{meOrUs}} നൽകുന്നതിൽ നിങ്ങളുടെ വിശ്വാസത്തെ {{iOrWe}}
+            വിലമതിക്കുന്നു, അതിനാൽ വാണിജ്യപരമായി സ്വീകാര്യമായ മാർഗ്ഗങ്ങൾ ഉപയോഗിക്കാൻ {{iOrWe}}
+            ശ്രമിക്കുന്നു. എന്നാൽ ഇൻറർനെറ്റിലൂടെ സംപ്രേഷണം ചെയ്യുന്ന രീതികളോ ഇലക്ട്രോണിക് സ്റ്റോറേജ്
+            രീതിയോ 100% സുരക്ഷിതവും വിശ്വസനീയവുമല്ല, മാത്രമല്ല അതിന്റെ സമ്പൂർണ്ണസുരക്ഷ {{meOrUs}}
+            ഉറപ്പുനൽകാൻ കഴിയില്ലെന്നും ഓർമ്മിക്കുക.
+          </p>
+          <p><strong>ഈ സ്വകാര്യതാനയത്തിന്റെ മാറ്റങ്ങൾ</strong></p>
+          <p>
+            ഈ സ്വകാര്യതാനയം <strong>{{effectiveFromDate}}</strong> മുതൽ പ്രാബല്യത്തിലുണ്ട്. അതിനെ സംബന്ധിക്കുന്ന
+            എന്തെങ്കിലും മാറ്റങ്ങളില്ലാത്തപക്ഷം അപ്രകാരം തന്നെ തുടരുകയും ചെയ്യും. {{iOrWe}} {{myOrOur}}
+            സ്വകാര്യതാനയം കാലാകാലങ്ങളിൽ പുതുക്കിയേക്കാമെന്നും അതിനുള്ള അവകാശം {{meOrUs3}}
+            നിക്ഷിപ്തമാണെന്നും നിങ്ങളെ അറിയിക്കുന്നു. അതിനാൽ, എന്തെങ്കിലും മാറ്റങ്ങൾക്കായി ഈ പേജ്
+            ഇടയ്ക്കിടെ അവലോകനം ചെയ്യാൻ നിങ്ങളോട് നിർദ്ദേശിക്കുന്നു. ഈ പേജിൽ സ്വകാര്യതാനയം
+            പുതുക്കുമ്പോൾ {{iOrWe}} സാമൂഹ്യമാധ്യമങ്ങളിലൂടെയോ ഇമെയിൽ വഴിയോ നിങ്ങളെ അറിയിക്കും.
+            ഈ മാറ്റങ്ങൾ ഈ പേജിൽ പോസ്റ്റുചെയ്ത ഉടൻ തന്നെ പ്രാബല്യത്തിൽ വരുന്നതാണ്.
+          </p>
+          <p><strong>ബന്ധപ്പെടാൻ</strong></p>
+          <p>
+            ഈ സ്വകാര്യതാനയത്തെക്കുറിച്ചുള്ള ഏത് ചോദ്യങ്ങൾക്കും സംശയങ്ങൾക്കും, ദയവായി {{webContact}}
+            എന്ന ഇ-മെയിൽ വിലാസത്തിൽ {{meOrUs2}} ബന്ധപ്പെടുക.
+          </p>
+          <p>
+            {{companyAddIn}}
+          </p><br>
+          <p>ഈ സ്വകാര്യതാനയം <a href="https://malayalam-privacy-policy-generator.digitalmalayali.in/" target="_blank"
+              rel="noopener noreferrer">സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്റർ</a> ഉപയോഗിച്ച്
+            സൃഷ്ടിച്ചതാണ്.</p>
+        </div>
+        <textarea class="textarea" id="privacy_txtarea" onclick="this.focus();this.select()" readonly="readonly"
+          v-show="contentRenderType==2"></textarea>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success" @click="getHtml('privacy_content','privacy_txtarea')">HTML</button>
+        <button class="button is-success" @click="getMarkdown('privacy_content', 'privacy_txtarea')">Markdown</button>
+        <button class="button is-success" v-if="contentRenderType!=1" @click="preview()">പ്രിവ്യൂ</button>
+        <button class="button is-danger" id="copybtn" data-clipboard-target="#privacy_content">പകർത്തുക</button>
+      </footer>
+    </div>
+  </div>
+  <div class="modal" v-bind:class="{ 'is-active': showDisclaimerModal }">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">അറിയിപ്പ്</p>
+        <button class="delete" aria-label="close" @click="toggleDisclaimerModalVisibility"></button>
+      </header>
+      <section class="modal-card-body">
+        <p>
+          സ്വകാര്യതാനയത്തിനായുള്ള ഈ ടെംപ്ലേറ്റ് വാറന്റികളോ വ്യവസ്ഥകളോ ഇല്ലാതെ, അവ പ്രകടിപ്പിക്കുകയോ
+          സൂചിപ്പിക്കുകയോ ചെയ്യാതെയാണ് നൽകിയിരിക്കുന്നത്. ഇത് നിങ്ങൾക്ക് ഒരു പ്രചോദനാത്മകരേഖയായിട്ടാണ്
+          ഉദ്ദേശിച്ചിട്ടുള്ളത്. നിങ്ങളുടെ സ്വകാര്യതാനയം സൃഷ്ടിക്കുമ്പോൾ നിങ്ങൾക്കിത് ഉപയോഗിക്കാം. നിങ്ങളുടെ
+          വെബ്‌സൈറ്റ് ഒരു സ്വതന്ത്രലൈസൻസിന് കീഴിലാണെങ്കിൽ, അതിനനുസരിച്ച് നിങ്ങൾ സൃഷ്ടിക്കപ്പെട്ട
+          സ്വകാര്യതാനയം പരിഷ്‌ക്കരിക്കേണ്ടതുണ്ട്. സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്ററിന്റെ ഡെവലപ്പർ ഈ
+          സ്വകാര്യതാനയത്തിന്റെ ഉപയോഗവുമായി ബന്ധപ്പെട്ട നിയമപരമായ പ്രത്യാഘാതങ്ങൾക്ക് ഒരു
+          ഉത്തരവാദിത്വവും ഏറ്റെടുക്കുന്നില്ല. കൂടാതെ, നിങ്ങളുടെ വെബ്‌സൈറ്റിന്റെ ഉപയോക്താക്കൾക്കും
+          സന്ദർശകർക്കും ബാധകമായ എല്ലാ നിയമങ്ങളും പാലിക്കുന്നുണ്ടെന്ന് ഉറപ്പാക്കാനായി
+          സ്വതന്ത്രനിയമോപദേശം തേടാൻ നിങ്ങളെ ഞങ്ങൾ പ്രേരിപ്പിക്കുന്നു. ഇവിടെ സൃഷ്ടിക്കപ്പെട്ട
+          നയത്തിന്റെ ഉപയോഗം മൂലം വ്യക്തിക്കോ/കമ്പനിക്കോ നേരിട്ടോ അല്ലാതെയോ ഉണ്ടാകുന്ന
+          ഏതെങ്കിലും നാശങ്ങൾക്ക്/നഷ്ടത്തിന് സ്വതന്ത്ര സ്വകാര്യതാനയം ജനറേറ്ററിന്റെ ഡെവലപ്പർ ഒരു
+          തരത്തിലും ഉത്തരവാദിയല്ല എന്ന് വ്യക്തമാക്കുന്നു.
+        </p>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-info" aria-label="close" @click="toggleDisclaimerModalVisibility">ശരി</button>
+      </footer>
+    </div>
+  </div>
+  </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
